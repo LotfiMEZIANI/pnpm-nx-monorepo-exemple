@@ -1,0 +1,11 @@
+{
+  "name": "my-custom-feature",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "echo 'building'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
