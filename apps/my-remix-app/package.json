@@ -1,11 +1,12 @@
 {
-  "name": "my-remix-app",
+  "name": "@poc/my-remix-app",
   "private": true,
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
-    "start": "remix-serve build"
+    "start": "remix-serve build",
+    "lint": "npx eslint ./app/ --ext .js,.ts,.jsx,.tsx"
   },
   "dependencies": {
     "@remix-run/node": "^1.7.4",
@@ -14,7 +15,8 @@
     "isbot": "^3.5.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "shared-ui": "workspace:^1.0.0"
+    "@poc/shared-ui": "workspace:*",
+    "@poc/shared-utils": "workspace:*"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.7.4",
@@ -26,5 +28,10 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "nx": {
+    "tags": [
+      "type:app"
+    ]
   }
 }

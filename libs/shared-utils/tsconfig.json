@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2019"],
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true
+  },
+  "include": ["./src"],
+  "exclude": ["dist", "node_modules", "**/*.spec.ts"]
+}

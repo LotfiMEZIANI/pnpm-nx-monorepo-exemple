@@ -10,6 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@nrwl/devkit": "^15.0.8",
+    "@nrwl/eslint-plugin-nx": "^15.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "eslint-plugin-react": "^7.31.10",
     "nx": "^15.0.4"
   }
 }

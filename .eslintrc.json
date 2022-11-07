@@ -1,0 +1,102 @@
+{
+  "root": true,
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "@nrwl/nx"
+  ],
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            // update depConstraints based on your tags
+            "depConstraints": [
+              {
+                "sourceTag": "scope:shared",
+                "onlyDependOnLibsWithTags": [
+                  "scope:shared"
+                ]
+              },
+              {
+                "sourceTag": "scope:admin",
+                "onlyDependOnLibsWithTags": [
+                  "scope:shared",
+                  "scope:admin"
+                ]
+              },
+              {
+                "sourceTag": "scope:employee",
+                "onlyDependOnLibsWithTags": [
+                  "scope:shared",
+                  "scope:employee"
+                ]
+              },
+              // Les project de type "app" dependent uniquement des projets de type
+              // on "feature", "ui" or "util", mais pas des autres projets de type "app"
+              {
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": [
+                  "type:feature",
+                  "type:ui",
+                  "type:util"
+                ]
+              },
+              // Le projet de type "feature" ne peuvent peuvent dependre des projets de
+              // de type "app" ou "feature"
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:util"
+                ]
+              },
+              // Les projets de type "ui" ne peuvent dependre que de d'autre projet
+              // de type "ui" can only depend on other ui
+              {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": [
+                  "type:ui",
+                  "type:util"
+                ]
+              },
+              {
+                "sourceTag": "type:util",
+                "onlyDependOnLibsWithTags": [
+                  "type:util"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
